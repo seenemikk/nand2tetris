@@ -1,0 +1,20 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/Register.hdl
+
+/**
+ * 16-bit register:
+ * If load[t] == 1 then out[t+1] = in[t]
+ * else out does not change
+ */
+
+CHIP DMux4Way16 {
+    IN in[16], sel[2];
+    OUT a[16], b[16], c[16], d[16];
+
+    PARTS:
+    DMux16 (in = in, sel = sel[1], a = a1, b = b1);
+    DMux16 (in = a1, sel = sel[0], a = a, b = b);
+    DMux16 (in = b1, sel = sel[0], a = c, b = d);
+}  

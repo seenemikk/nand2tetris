@@ -1,0 +1,32 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/Adder16.hdl
+
+/**
+ * Adds two 16-bit values.
+ * The most significant carry bit is ignored.
+ */
+
+CHIP And16Not {
+    IN a[16];
+    OUT out;
+
+    PARTS:
+    And (a = a[0], b = a[1], out = out1);
+    And (a = a[1], b = out1, out = out2);
+    And (a = a[2], b = out2, out = out3);
+    And (a = a[3], b = out3, out = out4);
+    And (a = a[4], b = out4, out = out5);
+    And (a = a[5], b = out5, out = out6);
+    And (a = a[6], b = out6, out = out7);
+    And (a = a[7], b = out7, out = out8);
+    And (a = a[8], b = out8, out = out9);
+    And (a = a[9], b = out9, out = out10);
+    And (a = a[10], b = out10, out = out11);
+    And (a = a[11], b = out11, out = out12);
+    And (a = a[12], b = out12, out = out13);
+    And (a = a[13], b = out13, out = out14);
+    And (a = a[14], b = out14, out = out15);
+    And (a = a[15], b = out15, out = out);
+}
